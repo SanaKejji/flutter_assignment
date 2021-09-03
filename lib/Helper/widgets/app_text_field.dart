@@ -31,7 +31,7 @@ class AppTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 80.w,
+      width: 85.w,
       child: TextFormField(
         scrollPadding: EdgeInsets.all(10),
         maxLines: maxLines,
@@ -55,17 +55,21 @@ class AppTextField extends StatelessWidget {
           fontWeight: FontWeight.w500,
         ),
         decoration: InputDecoration(
-
+//focusColor: AppColors.DarkBlue,
+          enabledBorder: const UnderlineInputBorder(
+             borderSide: const BorderSide(color: AppColors.White, width: 1.0),
+          ),
           labelText: label,
+          labelStyle:TextStyle(
+            fontSize: 11.0.sp,
+            fontWeight: FontWeight.w500,
+            color: AppColors.White
+          ) ,
           isDense: true,
           contentPadding: contetntPadding == null
               ? EdgeInsets.fromLTRB(0, 8, 0, 8)
               : EdgeInsets.fromLTRB(12, 15, 12, 15),
           //  EdgeInsets.fromLTRB(12, 15, 12, 15),
-          hintStyle:TextStyle(
-            fontSize: 11.0.sp,
-            fontWeight: FontWeight.w500,
-          ),
 
         ),
 

@@ -27,7 +27,7 @@ final Function onTap;
                 top: 15,
                 right: 20,
                 child: Text(
-                  "Login",
+                  btnText,
                   textAlign: TextAlign.left,
                   textScaleFactor: 2.0,
                   style: TextStyle(

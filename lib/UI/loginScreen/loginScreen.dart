@@ -4,6 +4,7 @@ import 'package:flutter_assignment/Helper/colors.dart';
 import 'package:flutter_assignment/Helper/widgets/app_text_field.dart';
 import 'package:flutter_assignment/Helper/widgets/login_register_button.dart';
 import 'package:flutter_assignment/Helper/widgets/login_register_title.dart';
+import 'package:flutter_assignment/Helper/widgets/app_text_button.dart';
 import 'package:flutter_assignment/UI/loginScreen/component/loginBackground.dart';
 import 'package:sizer/sizer.dart';
  class LoginScreen extends StatefulWidget {
@@ -51,25 +52,9 @@ import 'package:sizer/sizer.dart';
                  Row(
                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                    children: [
-                     TextButton(
-                       child: Text("Register",
-                         style: TextStyle(
-                             color: AppColors.Black,
-                             fontSize: 10.sp,
-                             fontWeight: FontWeight.bold
-                         ),),
-                       onPressed:() {
+                     AppTextButton(btnText: "Register", onPress: (){},),
+                     AppTextButton(btnText: "Forget password", onPress: (){},)
 
-                       },
-
-                     ),
-
-                     TextButton(
-                       child: Text("ForgetPassword"),
-                       onPressed:() {
-
-                       },
-                     ),
                    ],
                  )
 
