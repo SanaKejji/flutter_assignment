@@ -7,6 +7,8 @@ import 'UI/loginScreen/loginScreen.dart';
 void main() {
   runApp(
       Sizer(builder:(context,orientation,deviceType) =>MaterialApp(
+
+
         debugShowCheckedModeBanner: false,
         home: RegisterScreen(),
 

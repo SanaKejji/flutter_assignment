@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "342416232766",
+    "project_id": "fcm-notification-8e6e6",
+    "storage_bucket": "fcm-notification-8e6e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342416232766:android:c65528aa895e02cacf9c6f",
+        "android_client_info": {
+          "package_name": "com.assignment.sana.flutter_assignment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "342416232766-ctjl7gt6rh9eq1ud43jh6vkjeek5ia72.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYnRzssPm0QE0S5kjnVcMxanE6p8EnhMk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "342416232766-ctjl7gt6rh9eq1ud43jh6vkjeek5ia72.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
