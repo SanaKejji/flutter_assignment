@@ -5,6 +5,7 @@ import 'package:flutter_assignment/Helper/widgets/login_register_button.dart';
 import 'package:flutter_assignment/Helper/widgets/login_register_title.dart';
 import 'package:flutter_assignment/Helper/widgets/app_text_button.dart';
 import 'package:sizer/sizer.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 import 'component/registerBackground.dart';
 class RegisterScreen extends StatefulWidget {
@@ -15,6 +16,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
