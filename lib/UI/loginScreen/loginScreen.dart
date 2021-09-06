@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_assignment/UI/homeScreen/homeScreen.dart';
+import 'package:get/get.dart' ;
 import 'package:flutter_assignment/Helper/colors.dart';
 import 'package:flutter_assignment/Helper/widgets/app_text_field.dart';
 import 'package:flutter_assignment/Helper/widgets/login_register_button.dart';
@@ -46,7 +48,7 @@ import 'package:sizer/sizer.dart';
 
                  LoginRegisterButton(
                    btnText: "Login",
-                   onTap: (){print("hiii");},
+                   onTap: ()=>Get.to(HomeScreen()),
                  ),
                  SizedBox(height:6.h),
                  Row(

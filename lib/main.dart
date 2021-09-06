@@ -1,32 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assignment/Helper/constant/FCM_token.dart';
-import 'package:flutter_assignment/UI/registerScreen/registerScreen.dart';
-import 'package:flutter_assignment/service/push_notification_service.dart';
+import 'package:flutter_assignment/app.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'UI/homeScreen/homeScreen.dart';
-import 'UI/loginScreen/loginScreen.dart';
+import 'package:get_storage/get_storage.dart';
 
-
-// Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message)async{
-//   await Firebase.initializeApp();
-//
-//   print("A bg message : ${message.messageId}");
-// }
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-await Firebase.initializeApp();
+ await Firebase.initializeApp();
+  await GetStorage.init();
 
   runApp(
-      Sizer(builder:(context,orientation,deviceType) =>MaterialApp(
+      Sizer(builder:(context,orientation,deviceType) =>LayoutBuilder(
+        builder: (_, constraints) {
+          return OrientationBuilder(builder: (context, orientation) {
+            SizerUtil.setScreenSize(constraints, orientation);
 
 
-        debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
+                  return Application();
 
+
+          });
+        },
       ))
 
   );

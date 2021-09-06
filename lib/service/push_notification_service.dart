@@ -3,19 +3,25 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_assignment/Helper/constant/FCM_token.dart';
+import 'package:flutter_assignment/Helper/network_status.dart';
+import 'package:flutter_assignment/Helper/widgets/app_toast.dart';
 import 'package:http/http.dart' as http;
+
+import 'notification_handler.dart';
 class NotificationService {
 
- static void setUpFirebase() async {
+ static void setUpFirebase(BuildContext context) async {
+
     await FirebaseMessaging.instance
         .getToken()
         .then((value) => fcmToken = value!);
-    print("firebase token :  $fcmToken");
     await FirebaseMessaging.instance
         .setForegroundNotificationPresentationOptions(
         alert: true, badge: true, sound: true);
 
     FirebaseMessaging.onMessage.listen((event) => onMessage(event));
+
+    NotificationHandler.initNotification(context);
   }
 
  static Future<dynamic> onMessage(RemoteMessage message) async {
@@ -25,14 +31,15 @@ class NotificationService {
       final title = message.notification!.title;
 
       if (body != null && title != null)
-        print("this is notification title:$title  this is notification body:$body");
-
+      NotificationHandler.showNotification(title, body);
 
 
   }
 
   static Future<bool> sendFcmMessage(String title, String message) async {
-   print(message);
+   print("sendFcmMessage");
+    if (await NetworkStatus.internetStatus()){
+    print(message);
     try {
 
       var url = 'https://fcm.googleapis.com/fcm/send';
@@ -61,6 +68,11 @@ class NotificationService {
       return false;
     }
   }
+   else{ print("Check your internet connection"); return false;}}
+}
 
-  }
+
+
+
+
 
