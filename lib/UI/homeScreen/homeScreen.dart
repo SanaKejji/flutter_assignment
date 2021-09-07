@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_assignment/Controllers/home_controller.dart';
 import 'package:flutter_assignment/Helper/colors.dart';
+import 'package:flutter_assignment/service/local_storage.dart';
 import 'package:flutter_assignment/service/push_notification_service.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'component/app_btn.dart';
@@ -29,6 +30,7 @@ class HomeScreen extends GetView<HomeController> {
 
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
 
       home: Scaffold(
 appBar: AppBar(
@@ -52,7 +54,10 @@ appBar: AppBar(
            AppButton(
              btnColor: AppColors.Pink,
              btnTitle: "Bye",
-             onPress: (){NotificationService.sendFcmMessage("Good Bye me friend", "Sure you want to exit the app?");},
+             onPress: (){
+
+SharedPref().remove('user');
+               NotificationService.sendFcmMessage("Good Bye me friend", "Sure you want to exit the app?");},
            ),
          ],
        ),

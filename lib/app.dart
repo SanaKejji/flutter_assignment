@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:bot_toast/bot_toast.dart';
 
 import 'Controllers/app_controller.dart';
 

@@ -1,16 +1,22 @@
-import 'package:get_storage/get_storage.dart';
+import 'package:flutter_assignment/Models/user_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
-class ObjectStorage {
+class SharedPref {
   read(String key) async {
-    return json.decode(GetStorage().read(key));
+    final prefs = await SharedPreferences.getInstance();
+    return json.decode(prefs.getString(key)!);
   }
 
-  save(String key, value) async {
-    GetStorage().write(key, json.encode(value));
+  save(String key,User value) async {
+    final prefs = await SharedPreferences.getInstance();
+    bool r = await prefs.setString(key, json.encode(value));
+
+print(r);
   }
 
   remove(String key) async {
-    GetStorage().remove(key);
+    final prefs = await SharedPreferences.getInstance();
+    bool r = await prefs.remove(key);
   }
 }

@@ -1,13 +1,12 @@
 import 'package:flutter_assignment/Models/user_model.dart';
 import 'package:flutter_assignment/UI/homeScreen/homeScreen.dart';
 import 'package:flutter_assignment/UI/loginScreen/loginScreen.dart';
+import 'package:flutter_assignment/service/local_storage.dart';
 import 'package:flutter_assignment/service/push_notification_service.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:get_storage/get_storage.dart';
 
 class AppController extends GetxController with StateMixin<Widget> {
-  final box = GetStorage();
   final BuildContext context;
   User? user;
   AppController(this.context);
@@ -20,17 +19,23 @@ class AppController extends GetxController with StateMixin<Widget> {
   }
 
   Future<Widget> listenWidget() async {
-  await  loadObject();
-    if(user == null)
+    User? user;
+
+    try {
+      Map<String,dynamic> userMap = await SharedPref().read("user");
+       user = User.fromJson(userMap);
+
+    } catch (Excepetion) {
+print("error");
+    }
+
+   if( user==null)
     return  LoginScreen() ;
     else return HomeScreen();
   }
 
-  loadObject() async {
-    try {
-      user = User.fromJson(await GetStorage().read("user"));
-    } catch (e) {
-      user = null;
-    }
-  }
+
+
+
+
 }

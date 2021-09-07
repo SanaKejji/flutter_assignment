@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_assignment/Helper/constant/FCM_token.dart';
 import 'package:flutter_assignment/Helper/network_status.dart';
-import 'package:flutter_assignment/Helper/widgets/app_toast.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 
 import 'notification_handler.dart';
@@ -68,7 +68,18 @@ class NotificationService {
       return false;
     }
   }
-   else{ print("Check your internet connection"); return false;}}
+   else{
+
+      Fluttertoast.showToast(
+          msg: "Add Your Profile Image",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.grey,
+          textColor: Colors.white,
+          fontSize: 16.0
+      );
+     print("Check your internet connection"); return false;}}
 }
 
 
