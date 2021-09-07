@@ -51,7 +51,9 @@ import 'component/text_field_section.dart';
                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                    children: [
                      AppTextButton(btnText: "Register", onPress: ()=>controller.onClickRegister(),),
-                     AppTextButton(btnText: "Forget password", onPress: (){},)
+                     AppTextButton(btnText: "Go to home Screen", onPress: (){
+                       Get.to(HomeScreen());
+                     },)
 
                    ],
                  )
